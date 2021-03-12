@@ -1,0 +1,14 @@
+.margin-bottom-sm {
+  margin-bottom: 1rem;
+}
+
+.margin-bottom-md {
+  margin-bottom: 3rem;
+
+  @include respondMin(tab-land) {margin-bottom: 5rem;}
+  @include respondCustomMin(100em) {margin-bottom: 3rem;}
+}
+
+.margin-bottom-lg {
+  margin-bottom: 5rem;
+}

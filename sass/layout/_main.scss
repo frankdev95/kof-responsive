@@ -1,0 +1,124 @@
+header,
+main {
+  padding: 0 2rem;
+}
+
+header {
+  padding-top: 2rem;
+
+  @include respondMin(tab-port) {padding: 0;}
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  @include respondMin(tab-port) {padding: 4rem;}
+  @include respondMin(tab-land) {padding: 6rem;}
+}
+
+body {
+  max-height: 100vh;
+
+  @include respondMin(tab-port) {display: grid;}
+}
+
+.main {
+
+  @include respondMin(tab-port) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &__media {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 42vw;
+
+    @include respondMin(tab-port) {
+      grid-column: 4 / -1;
+      grid-template-rows: none;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      grid-column: 2 / -1;
+      justify-self: end;
+      align-self: end;
+    }
+
+    &-boxes {
+      position: absolute;
+      left: -8rem;
+      top: 3rem;
+      width: 65vw;
+
+      @include respondMin(tab-port) {
+        position: absolute;
+        left: -23rem;
+        top: 13rem;
+        width: calc(30vw + 330px);
+      }
+
+      @include respondMin(tab-land) {
+        top: 15rem;
+        left: -21rem;
+      }
+      @include respondCustomMin(100em) {top: 13rem;}
+      @include respondCustomMin(100em) {
+        width: calc(35vw + 330px);
+        top: 13rem;
+        left: -25rem;
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 1 / 4;
+  }
+
+  p {
+    @include respondCustomMin(25em) {width: 70%}
+    @include respondCustomMin(50em) {width: 60%}
+    @include respondMin(tab-port) {width: 80%}
+    @include respondCustomMin(100em) {width: 60%}
+
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+
+
+    @include respondMin(tab-port) {
+      flex-direction: column;
+      align-items: start;
+
+      & > a {
+        color: #ffffff;
+        text-display: none;
+      }
+
+      & > a,
+      & > div {
+        margin-bottom: 2rem;
+      }
+
+    }
+  }
+
+  &__fresh {
+    width: 10rem;
+    align-self: center;
+    margin-bottom: 2rem;
+
+    @include respondMin(phone) {
+      margin: 0 0 0 3rem;
+      width: 13rem;
+    }
+    @include respondMin(tab-port) {align-self: flex-end;}
+    @include respondCustomMin(82.0625em) {padding-top: 2rem;}
+  }
+}

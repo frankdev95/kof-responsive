@@ -1,0 +1,12 @@
+.main__social-icons {
+  margin-left: 3rem;
+
+  a:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    width: 2rem;
+  }
+}

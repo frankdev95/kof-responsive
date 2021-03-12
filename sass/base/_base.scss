@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px;
+
+  @include respondMin(phone) {
+    font-size: 68.75%;
+  }
+
+  @include respondMin(tab-port) {
+    font-size: 75%;
+  }
+
+  @include respondMin(tab-land) {
+    font-size: 87.5%;
+  }
+
+  @include respondCustomMin(100em) {
+    font-size: 93.75%;
+  }
+}
+
+body {
+  background-color: $clr-bg-main;
+  color: $clr-white;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1.6rem;
+}
+
+p {
+  font-family: "Gill Sans Light", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}

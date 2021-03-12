@@ -1,0 +1,56 @@
+.btn {
+  &--order {
+    background-color: $clr-primary;
+    border-radius: 30px;
+    color: #ffffff;
+    display: flex;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    span {
+      padding: .8rem 2.5rem;
+    }
+  }
+
+  &--left,
+  &--right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $clr-primary;
+    width: 5rem;
+    height: 5rem;
+    align-self: flex-end;
+  }
+
+  &--left {
+    margin-right: .5rem;
+  }
+}
+
+.main__navigation-btns {
+  display: flex;
+}
+
+.arrow {
+  &--left,
+  &--right {
+    position: relative;
+    border-top: 4px solid #fff;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &--left {
+    border-left: 4px solid #fff;
+    transform: rotate(-45deg);
+    left: 3px;
+  }
+
+  &--right {
+    border-right: 4px solid #fff;
+    transform: rotate(45deg);
+    right: 3px;
+  }
+}

@@ -1,0 +1,17 @@
+.sub {
+  a {
+    font-size: 2.5rem;
+  }
+}
+
+h1 {
+  font-size: 2.8em;
+
+  @include respondMin(tab-land) {font-size: 3.5em;}
+  @include respondCustomMin(100em) {font-size: 4em;}
+}
+
+h3 {
+  font-family: "Gill Sans Light", sans-serif;
+  @include respondCustomMin(100em) {font-size: 1.3em;}
+}

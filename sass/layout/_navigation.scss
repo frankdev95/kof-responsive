@@ -1,0 +1,183 @@
+.nav {
+  display: none;
+
+  @include respondMin(phone) {
+    display: initial;
+  }
+
+  &__list {
+    list-style: none;
+    margin-bottom: 2rem;
+
+    @include respondMin(tab-port) {
+      width: 120%;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+
+     &:not(:last-child) {
+       margin-right: 1.5rem;
+
+       @include respondMin(tab-land) {
+         margin-right: 2rem;
+       }
+     }
+
+  }
+
+  &__link {
+    color: $clr-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.sub {
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(100);
+
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  &__checkbox:checked ~ &__nav &__list {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__background {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    border-radius: 50%;
+    background-image: radial-gradient($clr-bg-main, $clr-bg-light);
+    transform: scale(0);
+    transition: transform .3s ease;
+    z-index: 1;
+
+    @include respondMax(phone) {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: $clr-white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    width: 4rem;
+    height: 4rem;
+    z-index: 2;
+
+    @include respondMax(phone) {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s .1s ease-in;
+    z-index: 1;
+  }
+
+  &__list {
+    text-align: center;
+    list-style: none;
+    opacity: 0;
+    transform: translateX(-125%);
+    transition: transform .2s .1s ease-in-out;
+  }
+
+  &__item {
+    background-image: linear-gradient(120deg, transparent 50%, $clr-white 50%);
+    background-size: 225%;
+    padding: 1.5rem 3rem;
+    transition: all .3s;
+
+    &:hover {
+      background-position: 100%;
+      & .sub__link {
+        color: $clr-bg-main;
+      }
+    }
+  }
+
+  &__link {
+    color: $clr-white;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    &,
+    &:before,
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      background-color: #000;
+      width: 2rem;
+      height: 2px;
+      z-index: 2;
+      transition: all .3s;
+    }
+
+    &:before {
+      bottom: .5rem;
+    }
+
+    &:after {
+      top: .5rem;
+    }
+  }
+
+  &__checkbox:checked + &__button > &__icon {
+    background-color: transparent;
+    &:after {
+      top: 0;
+      transform: rotate(225deg);
+    }
+
+    &:before {
+      bottom: 0;
+      transform: rotate(-225deg);
+    }
+  }
+
+  &__button:hover > &__icon {
+    &:before {
+      bottom: .6rem;
+    }
+
+    &:after {
+      top: .6rem;
+    }
+  }
+}
+
